@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+  <title>Poll.Pizza | Results</title>
+
+  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/material.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" sizes="192x192" href="pizza_192x192.png">
+  <link rel="icon" sizes="128x128" href="pizza_128x128.png">
+  <link rel="apple-touch-icon" href="pizza_180x180.png">
+
+  <!-- Android Web App Meta -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#f7cf6d">
+  <!-- Apple Web App Meta -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f7cf6d">
+  <meta name="apple-mobile-web-app-title" content="Poll.Pizza">
+  <link rel="apple-touch-startup-image" href="pizza_load.png">
+
+</head>
+<body class="pt-4">
+
+  <div class="navbar navbar-dark fixed-top bg-primary toolbar-waterfall" id="navbar">
+    <button aria-controls="navdrawer" aria-expanded="false" aria-label="Toggle Navdrawer" class="navbar-toggler" data-target="#navdrawer" data-toggle="navdrawer">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand ml-auto" href="index.html" target="_self"><i class="material-icons text-secondary">&#xE552;</i> Poll.Pizza</a>
+  </div>
+  <div class="navdrawer" id="navdrawer" tabindex="-1" aria-hidden="true" style="display: none;">
+    <div class="navdrawer-content">
+      <div class="d-flex flex-column min-height">
+        <div class="navdrawer-header">
+          <a class="navbar-brand px-0" href="index.html" target="_self"><i class="material-icons text-secondary">&#xE552;</i> Poll.Pizza</a>
+        </div>
+        <nav class="navdrawer-nav">
+          <a class="nav-item nav-link" href="index.html" target="_self">
+            <i class="material-icons mr-md">&#xE88A;</i> <strong>Home</strong>
+          </a>
+          <a class="nav-item nav-link" href="create.html" target="_self">
+            <i class="material-icons mr-md">&#xE01D;</i> <strong>Create A Poll</strong>
+          </a>
+          <div class="navdrawer-divider"></div>
+          <a class="nav-item nav-link collapsed" data-toggle="collapse" href="#nav_example">
+            <i class="material-icons mr-md">&#xE6C5;</i> <strong>Example Poll</strong>
+          </a>
+          <div class="collapse pb-sm " id="nav_example">
+          <a class="nav-item nav-link pl-lg text-black-secondary" href="vote.html?poll=pizza" target="_self"><span class="font-weight-normal">Pizza Vote</span></a>
+          <a class="nav-item nav-link pl-lg text-black-secondary" href="result.html?poll=pizza" target="_self"><span class="font-weight-normal">Pizza Results</span></a>
+          </div>
+        </nav>
+        <div class="mt-auto">
+          <div class="navdrawer-divider mt-no"></div>
+          <div class="navdrawer-nav">
+            <a class="nav-item nav-link text-muted">
+              <i class="material-icons mr-md text-muted">&#xE80C;</i> s3490602
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container pt-5" id="app" ng-app="resultPizza" ng-controller="pizzaCtrl" ng-cloak>
+
+    <h3 class="mb-3">{{title}}</h3>
+
+    <div id="resultArea">
+
+      <div class="card mb-4">
+        <div class="card-header bg-light text-muted font-weight-bold">{{question}}</div>
+        <div class="card-body p-0 mb-3">
+          
+          <div id="pieLegend" class="custom-legend"></div>
+          <div><canvas id="pieChart"></canvas></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header bg-light text-muted"><strong>Vote Data</strong></div>
+        <div class="card-body mt-3">
+
+          <table id="resultsTable" class="table table-bordered table-sm table-striped table-responsive w-100 d-block d-sm-table">
+            <thead>
+              <tr>
+                <th>Vote</th>
+                <th>Name</th>
+                <th>Date/Time</th>
+              </tr>
+            </thead>
+          </table>
+
+        </div>
+      </div>
+
+    <div id="goVote"></div>
+
+    <hr />
+    <p class="text-center"><small class="text-muted" ng-cloak>
+    Poll {{poll_id}} created by {{creator}} on {{poll_timestamp}} <br />
+    Share URL: <a href="https://poll.pizza/result.html?poll={{url}}" target="_blank">https://poll.pizza/result.html?poll={{url}}</a>
+    </small></p>
+
+  </div><!-- /.container -->
+
+  <div class="container mt-4">
+    <footer class="footer">
+      <hr />
+      <p>&copy; Poll.Pizza 2017</p>
+    </footer>
+  </div><!-- /.container -->
+
+  <!-- JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+  <script src="js/chart.piecelabel.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="js/dataTables.bootstrap4.min.js"></script>
+  <script src="app/pizza-result.js"></script>
+
+</body>
+</html>

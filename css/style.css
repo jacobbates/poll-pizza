@@ -1,0 +1,50 @@
+/* Customize container */
+@media (min-width: 48em) {
+  .container {
+    max-width: 46rem;
+  }
+}
+.dataTables_filter label, .dataTables_length label{
+  width: 100%;
+}
+
+.next>.page-link,.previous>.page-link{
+  font-weight: bold;
+  background-color: #eee;
+}
+
+.page-link{
+	border-radius: 50%;
+}
+
+.container{
+  overflow-x: hidden;
+}
+
+.custom-legend{
+
+}
+
+#pieChart{
+	margin-top: 1em;
+}
+
+.custom-legend ul {
+
+}
+.custom-legend  li {
+    cursor: pointer;
+}
+.custom-legend li.striked {
+	text-decoration: line-through;
+}
+.custom-legend li.striked span {
+	background: #b3b3b3
+}
+.custom-legend span {
+	height: 1em;width: 1em;border-radius: 50%;display: inline-block;margin-right: 1em;margin-left:0;vertical-align: middle;
+}
+
+.min-height{
+	min-height: 100%;
+}
