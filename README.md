@@ -18,5 +18,5 @@ Poll.Pizza is a full stack application created for ‘ISYS-2048 Developing Mobil
 
 ________________
 
-##Misc
+### License
 Licensed under MIT
