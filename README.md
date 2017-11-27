@@ -1,5 +1,3 @@
-**Note:** Refer to **readme_installation_instructions.pdf** for detailed installation instructions and required content for *ISYS-2048 Developing Mobility Solutions*
-
 # Poll-Pizza
 Create, vote, share and view results of short-term-use disposable polls!
 A quick way to create a poll for your friends with 2-4 options and view results weighted in a pie pizza chart!
